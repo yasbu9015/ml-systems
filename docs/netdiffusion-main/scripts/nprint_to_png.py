@@ -23,7 +23,7 @@ def dataframe_to_png(df, output_file):
     padded_height = 1024
 
     np_img = np.full((padded_height, width, 4), (0, 0, 255, 255), dtype=np.uint8)
-    np_df = np.array(df.applymap(np.array).to_numpy().tolist())
+    np_df = np.array(df.map(np.array).to_numpy().tolist())
     np_img[:height, :, :] = np_df
 
     img = Image.fromarray(np_img, 'RGBA')
